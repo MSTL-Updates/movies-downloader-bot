@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 
 
 url_list = {}
-api_key = "6f26479abd16923b72bc3a5103403820207f6ae8"
+api_key = "d4987d75dfd24b8a36916bc28ed7a948812058b9"
 
 
 def search_movies(query):
@@ -32,7 +32,7 @@ def get_movie(query):
         links = movie_page_link.find_all("a", {'rel': 'noopener', 'data-wpel-link': 'internal'})
         final_links = {}
         for i in links:
-            url = f"https://shrinkme.io/api?api={api_key}&url={i['href']}"
+            url = f"https://urlshortx.com/api?api={api_key}&url={i['href']}"
             response = requests.get(url)
             link = response.json()
             final_links[f"{i.text}"] = link['shortenedUrl']
